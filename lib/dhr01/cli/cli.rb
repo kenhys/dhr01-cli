@@ -18,6 +18,18 @@ module Dhr01
         puts "v#{Dhr01::Cli::VERSION}"
       end
       map %w(--version -v) => :version
+
+      desc 'reboot', 'Command description...'
+      method_option :help, aliases: '-h', type: :boolean,
+                           desc: 'Display usage information'
+      def reboot(*)
+        if options[:help]
+          invoke :help, ['reboot']
+        else
+          require_relative 'commands/reboot'
+          Dhr01::Cli::Commands::Reboot.new(options).execute
+        end
+      end
     end
   end
 end
