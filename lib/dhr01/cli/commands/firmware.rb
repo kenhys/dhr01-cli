@@ -6,8 +6,7 @@ module Dhr01
   module Cli
     module Commands
       class Firmware < Dhr01::Cli::Command
-        def initialize(version, options)
-          @version = version
+        def initialize(options)
           @options = options
         end
 
