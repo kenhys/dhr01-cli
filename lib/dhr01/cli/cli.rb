@@ -19,6 +19,21 @@ module Dhr01
       end
       map %w(--version -v) => :version
 
+      desc 'firmware [VERSION]', 'Command description...'
+      method_option :help, aliases: '-h', type: :boolean,
+                           desc: 'Display usage information'
+      def firmware(version=nil)
+        if options[:help]
+          invoke :help, ['firmware']
+        else
+          require_relative 'commands/firmware'
+          Dhr01::Cli::Commands::Firmware.new(version, options).execute
+        end
+      end
+
+      require_relative 'commands/firmware'
+      register Dhr01::Cli::Commands::Firmware, 'firmware', 'firmware [SUBCOMMAND]', 'Command description...'
+
       desc 'reboot', 'Command description...'
       method_option :help, aliases: '-h', type: :boolean,
                            desc: 'Display usage information'
