@@ -46,6 +46,9 @@ module Dhr01
           Dhr01::Cli::Commands::Reboot.new(options).execute
         end
       end
+
+      require_relative 'commands/firmware'
+      register Dhr01::Cli::Commands::Firmware, 'firmware', 'firmware [SUBCOMMAND]', 'Command description...'
     end
   end
 end
