@@ -6,6 +6,8 @@ module Dhr01
       attr :login_password, true
       def initialize(options={})
         @router_ip = "192.168.10.1"
+        @login_name = ENV["DHR01_LOGIN_NAME"] || "admin"
+        @login_password = ENV["DHR01_LOGIN_PASSWORD"] || "password"
       end
     end
   end
