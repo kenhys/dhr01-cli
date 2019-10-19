@@ -24,7 +24,9 @@ module Dhr01
         switch_to_frame("view")
         @driver.find_elements(:xpath => "//table[2]").each do |table|
           table.find_elements(:xpath => "//td[2]").each do |td|
-            @output.puts(td.text.chomp)
+            unless td.text.chomp.empty?
+              @output.puts("firmware version: <#{td.text.chomp}>")
+            end
           end
         end
       end
