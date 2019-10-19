@@ -10,7 +10,7 @@ module Dhr01
         login
       end
 
-      def check_version
+      def get_version
         switch_to_frame("menu")
         @wait.until do
           @driver.find_element(:id => "mtmtable").displayed?
