@@ -14,7 +14,7 @@ module Dhr01
 
       def login
         url = "http://#{@config.login_name}:#{@config.login_password}@#{@config.router_ip}/home.htm"
-        @output.puts("url: <#{url}>")
+        @output.puts("login router setting url: <#{url}>")
         @driver.navigate.to(url)
         @wait.until do
           @driver.find_element(:name => "menu").displayed?
