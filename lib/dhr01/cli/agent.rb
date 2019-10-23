@@ -8,6 +8,7 @@ module Dhr01
         @config = options[:config]
         @output = options[:output] || $stdout
         browser_options = Selenium::WebDriver::Firefox::Options.new
+        browser_options.add_argument('-headless')
         @driver = Selenium::WebDriver.for :firefox, options: browser_options
         @wait = Selenium::WebDriver::Wait.new(:timeout => 20)
       end
